@@ -6,13 +6,17 @@ int numa = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Input second number");
 int numb = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine();
-if (a > b)
+if (numa > numb)
 {
     Console.WriteLine($"{numa} more {numb}");
 }
-else
+else if (numb > numa)
 {
     Console.WriteLine($"{numb} more {numa}");
+}
+else
+{
+    Console.WriteLine($"{numa} and {numb} are equal.");
 }
 
 */
@@ -37,5 +41,49 @@ int Max(int a, int b, int c)
 
 int max = Max(numa, numb, numc);
 Console.WriteLine("Maximum number " + max);
+
+*/
+
+/*
+//Задача 3: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+
+Console.WriteLine("Input number");
+int num = Convert.ToInt32(Console.ReadLine());
+
+if (num %2 == 0)
+{
+    Console.WriteLine($"{num} является четным числом");
+}
+else
+{
+    Console.WriteLine($"{num} является не четным числом");
+}
+
+*/
+
+/*
+//Задача 8: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+
+Console.Write("Input number: ");
+int num = Convert.ToInt32(Console.ReadLine());
+
+if (num > 0)
+{
+    int current = 2;
+    while (current <= num)
+    {
+        Console.Write(current + " ");
+        current += 2;
+    }
+}
+else if (num <= 0)
+{
+    int current = -2;
+    while (current >= num)
+    {
+        Console.Write(current + " ");
+        current -= 2;
+    }
+}
 
 */
