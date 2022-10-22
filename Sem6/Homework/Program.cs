@@ -1,52 +1,50 @@
-﻿
+﻿//Задача 1: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
 
-//Задача 1: Задайте массив заполненный случайными положительными трёхзначными числами. Напишите программу, которая покажет количество чётных чисел в массиве.
-
-int[] CreateRandomArray()
-{
-    int[] newArray = new int[10];
-
-    for (int i = 0; i < newArray.Length; i++)
-        newArray[i] = new Random().Next(100, 999);
-
-    return newArray;
-}
-
-void PrintArray(int[] array)
-{
-    for (int i = 0; i < array.Length; i++)
-        Console.Write(array[i] + " ");
-    Console.WriteLine();
-}
-
-void CountEvenNum(int[] array)
+int AmountPositiveNums(int amount)
 {
     int count = 0;
-    for (int i = 0; i < array.Length; i++)
-        if (array[i] % 2 == 0) count++;
-    Console.WriteLine($"Even numbers in array = {count}");
+    for (int i = 0; i < amount; i++)
+    {
+        Console.WriteLine("Input number: ");
+        int num = Convert.ToInt32(Console.ReadLine());
+        if (num > 0) count++;
+    }
+    return count;
 }
 
-// int[] array = CreateRandomArray();
-// PrintArray(array);
-// CountEvenNum(array);
+// Console.Write("Input amount numbers: ");
+// int amount = Convert.ToInt32(Console.ReadLine());
+// int result = AmountPositiveNums(amount);
+// Console.WriteLine($"Amount positive numbers = {result}");
 
 
 
-//Задача 2: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+//Задача 2: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
+//значения b1, k1, b2 и k2 задаются пользователем.
 
-void CountOddNum(int[] array)
+double[] IntersectionLines(double b1, double k1, double b2, double k2)
 {
-    int count = 0;
-    for (int i = 1; i < array.Length; i += 2)
-        count += array[i];
-    Console.WriteLine($"Sun odd numbers in array = {count}");
+    double[] array = new double[2];
+    array[0] = (b2-b1)/(k1-k2);
+    array[1] = k1 * array[0] + b1;
+    return array;
+}
+void PrintIntersection(double[] array)
+{
+    Console.Write($"Точка пересечения = [{array[0]}; {array[1]}].");
 }
 
-// int[] array = CreateRandomArray();
-// PrintArray(array);
-// CountOddNum(array);
-
-
-
-//Задача 3: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+Console.Write("Введите b1: ");
+double b1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите k1: ");
+double k1 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите b2: ");
+double b2 = Convert.ToDouble(Console.ReadLine());
+Console.Write("Введите k2: ");
+double k2 = Convert.ToDouble(Console.ReadLine());
+if(k1 == k2) Console.WriteLine("Прямые параллельны, точки пересечения нет.");
+else
+{
+    double[] result = IntersectionLines(b1,k1,b2,k2);
+    PrintIntersection(result);
+}
